@@ -10,9 +10,15 @@ public class Polygon {
 
 
     public Polygon() {
-        vertexIndices = new ArrayList<Integer>();
-        textureVertexIndices = new ArrayList<Integer>();
-        normalIndices = new ArrayList<Integer>();
+        vertexIndices = new ArrayList<>();
+        textureVertexIndices = new ArrayList<>();
+        normalIndices = new ArrayList<>();
+    }
+
+    public Polygon(ArrayList<Integer> vertexIndices, ArrayList<Integer> textureVertexIndices, ArrayList<Integer> normalIndices) {
+        this.vertexIndices = vertexIndices;
+        this.textureVertexIndices = textureVertexIndices;
+        this.normalIndices = normalIndices;
     }
 
     public void setVertexIndices(ArrayList<Integer> vertexIndices) {
