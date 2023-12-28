@@ -40,7 +40,7 @@ public class ObjWriter {
     }
     protected static void writeV(PrintWriter pw, List<Vector3f> vertices) throws IOException{
         for (Vector3f v: vertices) {
-            pw.println(OBJ_VERTEX_TOKEN + " " + v.x + " " + v.y + " " + v.z);
+            pw.println(OBJ_VERTEX_TOKEN + " " + v.getX() + " " + v.getY() + " " + v.getZ());
         }
         pw.println();
     }
@@ -54,7 +54,7 @@ public class ObjWriter {
 
     protected static void writeN(PrintWriter pw, List<Vector3f> normals) throws IOException{
         for (Vector3f n: normals) {
-            pw.println(OBJ_NORMAL_TOKEN + " " + n.x + " " + n.y + " " + n.z);
+            pw.println(OBJ_NORMAL_TOKEN + " " + n.getX() + " " + n.getY() + " " + n.getZ());
         }
         pw.println();
     }
