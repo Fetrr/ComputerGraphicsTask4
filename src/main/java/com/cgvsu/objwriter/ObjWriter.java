@@ -47,7 +47,7 @@ public class ObjWriter {
 
     protected static void writeTV(PrintWriter pw, List<Vector2f> textureVertices) throws IOException{
         for (Vector2f v: textureVertices) {
-            pw.println(OBJ_TEXTURE_TOKEN + " " + v.x + " " + v.y);
+            pw.println(OBJ_TEXTURE_TOKEN + " " + v.getX() + " " + v.getY());
         }
         pw.println();
     }
