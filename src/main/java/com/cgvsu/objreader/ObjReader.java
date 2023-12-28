@@ -78,15 +78,19 @@ public class ObjReader {
 			throw new ObjReaderException("Too many texture vertex arguments.", lineInd);
 		}
 		try {
-			if (Float.parseFloat(wordsInLineWithoutToken.get(2)) == 0.0){
+			if (wordsInLineWithoutToken.size() > 2){
+				if (Float.parseFloat(wordsInLineWithoutToken.get(2)) == 0.0){
+					return new Vector2f(
+							Float.parseFloat(wordsInLineWithoutToken.get(0)),
+							Float.parseFloat(wordsInLineWithoutToken.get(1)));
+			}else{
+					throw new ObjReaderException("Too many and wrong texture vertex arguments.", lineInd);
+				}
+			}else{
 				return new Vector2f(
 						Float.parseFloat(wordsInLineWithoutToken.get(0)),
 						Float.parseFloat(wordsInLineWithoutToken.get(1)));
-			}else{
-				throw new ObjReaderException("Too many and wrong texture vertex arguments.", lineInd);
 			}
-
-
 		} catch(NumberFormatException e) {
 			throw new ObjReaderException("Failed to parse float value.", lineInd);
 
