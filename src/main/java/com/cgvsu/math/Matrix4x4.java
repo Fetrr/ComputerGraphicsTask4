@@ -8,6 +8,7 @@ public class Matrix4x4 {
                 matrix[0].length != 4 || matrix[1].length != 4 || matrix[2].length != 4 || matrix[3].length != 4) {
             throw new IllegalArgumentException("array must be 4x4!");
         }
+        this.matrix = new double[matrix.length][matrix[0].length];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 this.matrix[i][j] = matrix[i][j];

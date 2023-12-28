@@ -8,6 +8,7 @@ public class Matrix3x3 {
                 matrix[0].length != 3 || matrix[1].length != 3 || matrix[2].length != 3) {
             throw new IllegalArgumentException("array must be 3x3!");
         }
+        this.matrix = new double[matrix.length][matrix[0].length];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 this.matrix[i][j] = matrix[i][j];
