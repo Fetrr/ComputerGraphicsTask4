@@ -1,14 +1,18 @@
 package com.cgvsu.math;
 
 public class Matrix3x3 {
-    private final double[][] matrix;
+    private double[][] matrix;
 
     public Matrix3x3(double[][] matrix) {
         if (matrix.length != 3 ||
                 matrix[0].length != 3 || matrix[1].length != 3 || matrix[2].length != 3) {
             throw new IllegalArgumentException("array must be 3x3!");
         }
-        this.matrix = matrix;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                this.matrix[i][j] = matrix[i][j];
+            }
+        }
     }
 
     public double[][] getMatrix() {

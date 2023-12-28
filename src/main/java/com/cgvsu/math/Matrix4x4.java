@@ -1,14 +1,18 @@
 package com.cgvsu.math;
 
 public class Matrix4x4 {
-    private final double[][] matrix;
+    private double[][] matrix;
 
     public Matrix4x4(double[][] matrix) {
         if (matrix.length != 4 ||
                 matrix[0].length != 4 || matrix[1].length != 4 || matrix[2].length != 4 || matrix[3].length != 4) {
             throw new IllegalArgumentException("array must be 4x4!");
         }
-        this.matrix = matrix;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                this.matrix[i][j] = matrix[i][j];
+            }
+        }
     }
 
     public double[][] getMatrix() {
