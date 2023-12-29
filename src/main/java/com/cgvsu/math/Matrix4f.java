@@ -57,24 +57,20 @@ public class Matrix4f {
         return result;
     }
 
-    public Matrix4f add(Matrix4f other) {
-        double[][] result = new double[4][4];
+    public void add(Matrix4f other) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                result[i][j] = this.matrix[i][j] + other.getMatrix()[i][j];
+                this.matrix[i][j] += other.getMatrix()[i][j];
             }
         }
-        return new Matrix4f(result);
     }
 
-    public Matrix4f subtract(Matrix4f other) {
-        double[][] result = new double[4][4];
+    public void subtract(Matrix4f other) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                result[i][j] = this.matrix[i][j] - other.getMatrix()[i][j];
+                this.matrix[i][j] -= other.getMatrix()[i][j];
             }
         }
-        return new Matrix4f(result);
     }
 
     public Vector4f multiplyVector(Vector4f v) {
@@ -86,7 +82,7 @@ public class Matrix4f {
         return new Vector4f(result);
     }
 
-    public Matrix4f multiplyMatrix(Matrix4f other) {
+    public void multiplyMatrix(Matrix4f other) {
         double[][] m = other.getMatrix();
         double[][] result = new double[4][4];
         for (int i = 0; i < 4; i++) {
@@ -96,17 +92,17 @@ public class Matrix4f {
                 }
             }
         }
-        return new Matrix4f(result);
+        this.matrix = result;
     }
 
-    public Matrix4f transpose() {
+    public void transpose() {
         double[][] result = new double[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 result[i][j] = this.matrix[j][i];
             }
         }
-        return new Matrix4f(result);
+        this.matrix = result;
     }
 
     public static Matrix4f setIdentityMatrix() {

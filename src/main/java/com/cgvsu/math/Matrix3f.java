@@ -47,24 +47,20 @@ public class Matrix3f {
         return matrix;
     }
 
-    public Matrix3f add(Matrix3f other) {
-        double[][] result = new double[3][3];
+    public void add(Matrix3f other) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                result[i][j] = this.matrix[i][j] + other.getMatrix()[i][j];
+                this.matrix[i][j] += other.getMatrix()[i][j];
             }
         }
-        return new Matrix3f(result);
     }
 
-    public Matrix3f subtract(Matrix3f other) {
-        double[][] result = new double[3][3];
+    public void subtract(Matrix3f other) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                result[i][j] = this.matrix[i][j] - other.getMatrix()[i][j];
+                this.matrix[i][j] -= other.getMatrix()[i][j];
             }
         }
-        return new Matrix3f(result);
     }
 
     public Vector3f multiplyVector(Vector3f v) {
@@ -75,7 +71,7 @@ public class Matrix3f {
         return new Vector3f(result);
     }
 
-    public Matrix3f multiplyMatrix(Matrix3f m) {
+    public void multiplyMatrix(Matrix3f m) {
         double[][] other = m.getMatrix();
         double[][] result = new double[3][3];
         for (int i = 0; i < 3; i++) {
@@ -85,17 +81,17 @@ public class Matrix3f {
                 }
             }
         }
-        return new Matrix3f(result);
+        this.matrix = result;
     }
 
-    public Matrix3f transpose() {
+    public void transpose() {
         double[][] result = new double[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 result[i][j] = this.matrix[j][i];
             }
         }
-        return new Matrix3f(result);
+        this.matrix = result;
     }
 
     public static Matrix3f setIdentityMatrix() {
