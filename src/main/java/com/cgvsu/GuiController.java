@@ -24,7 +24,7 @@ import com.cgvsu.math.*;
 
 public class GuiController {
 
-    final private double TRANSLATION = 0.5F;
+    final private double TRANSLATION = 3.5; // Чтобы изменить скорость прокрутки, меняйте эту константу
 
     @FXML
     AnchorPane anchorPane;
