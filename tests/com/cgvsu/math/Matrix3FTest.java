@@ -3,13 +3,13 @@ package com.cgvsu.math;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Matrix3x3Test {
+public class Matrix3FTest {
 
     @Test
     public void testMatrixAddition() {
-        Matrix3x3 matrix1 = new Matrix3x3(new double[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
-        Matrix3x3 matrix2 = new Matrix3x3(new double[][]{{9, 8, 7}, {6, 5, 4}, {3, 2, 1}});
-        Matrix3x3 result = matrix1.add(matrix2);
+        Matrix3f matrix1 = new Matrix3f(new double[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        Matrix3f matrix2 = new Matrix3f(new double[][]{{9, 8, 7}, {6, 5, 4}, {3, 2, 1}});
+        Matrix3f result = matrix1.add(matrix2);
 
         double[][] expected = {{10, 10, 10}, {10, 10, 10}, {10, 10, 10}};
         assertArrayEquals(expected, result.getMatrix());
@@ -17,9 +17,9 @@ public class Matrix3x3Test {
 
     @Test
     public void testMatrixSubtraction() {
-        Matrix3x3 matrix1 = new Matrix3x3(new double[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
-        Matrix3x3 matrix2 = new Matrix3x3(new double[][]{{9, 8, 7}, {6, 5, 4}, {3, 2, 1}});
-        Matrix3x3 result = matrix1.subtract(matrix2);
+        Matrix3f matrix1 = new Matrix3f(new double[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        Matrix3f matrix2 = new Matrix3f(new double[][]{{9, 8, 7}, {6, 5, 4}, {3, 2, 1}});
+        Matrix3f result = matrix1.subtract(matrix2);
 
         double[][] expected = {{-8, -6, -4}, {-2, 0, 2}, {4, 6, 8}};
         assertArrayEquals(expected, result.getMatrix());
@@ -27,15 +27,15 @@ public class Matrix3x3Test {
 
     @Test
     public void testMatrixMultiplication() {
-        Matrix3x3 matrix1 = new Matrix3x3(new double[][]{
+        Matrix3f matrix1 = new Matrix3f(new double[][]{
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}});
-        Matrix3x3 matrix2 = new Matrix3x3(new double[][]{
+        Matrix3f matrix2 = new Matrix3f(new double[][]{
                 {9, 8, 7},
                 {6, 5, 4},
                 {3, 2, 1}});
-        Matrix3x3 result = matrix1.multiplyMatrix(matrix2);
+        Matrix3f result = matrix1.multiplyMatrix(matrix2);
 
         double[][] expected = {
                 {30, 24, 18},
@@ -46,7 +46,7 @@ public class Matrix3x3Test {
 
     @Test
     public void testVectorMultiplication() {
-        Matrix3x3 matrix = new Matrix3x3(new double[][]{
+        Matrix3f matrix = new Matrix3f(new double[][]{
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}});
@@ -59,11 +59,11 @@ public class Matrix3x3Test {
 
     @Test
     public void testMatrixTranspose() {
-        Matrix3x3 matrix = new Matrix3x3(new double[][]{
+        Matrix3f matrix = new Matrix3f(new double[][]{
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}});
-        Matrix3x3 result = matrix.transpose();
+        Matrix3f result = matrix.transpose();
         assertArrayEquals(new double[][] {
                 {1, 4, 7},
                 {2, 5, 8},
@@ -72,7 +72,7 @@ public class Matrix3x3Test {
 
     @Test
     public void testIdentityMatrix() {
-        Matrix3x3 identity = Matrix3x3.setIdentityMatrix();
+        Matrix3f identity = Matrix3f.setIdentityMatrix();
         assertArrayEquals(new double[][] {
                 {1, 0, 0},
                 {0, 1, 0},
@@ -83,13 +83,13 @@ public class Matrix3x3Test {
     public void testInvalidMatrixInitialization() {
         assertThrows(IllegalArgumentException.class, () -> {
             double[][] invalidMatrixData = {{1, 2, 3}, {4, 5, 6}};
-            new Matrix3x3(invalidMatrixData);
+            new Matrix3f(invalidMatrixData);
         });
     }
 
     @Test
     public void testNullMatrix() {
-        Matrix3x3 nullMatrix = Matrix3x3.setNullMatrix();
+        Matrix3f nullMatrix = Matrix3f.setNullMatrix();
         assertArrayEquals(new double[][] {
                 {0, 0, 0},
                 {0, 0, 0},
@@ -98,19 +98,19 @@ public class Matrix3x3Test {
 
     @Test
     public void testMatrixDeterminant() {
-        Matrix3x3 matrix = new Matrix3x3(new double[][]{
+        Matrix3f matrix = new Matrix3f(new double[][]{
                 {1, 2, 3},
                 {4, 3, 6},
                 {7, 8, 9}});
         assertEquals(24, matrix.getDet());
 
-        matrix = new Matrix3x3(new double[][]{
+        matrix = new Matrix3f(new double[][]{
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 90}});
         assertEquals(-243, matrix.getDet());
 
-        matrix = new Matrix3x3(new double[][]{
+        matrix = new Matrix3f(new double[][]{
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}});

@@ -3,21 +3,21 @@ package com.cgvsu.math;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Matrix4x4Test {
+public class Matrix4FTest {
 
     @Test
     public void testMatrixAddition() {
-        Matrix4x4 matrix1 = new Matrix4x4(new double[][]{
+        Matrix4f matrix1 = new Matrix4f(new double[][]{
                 {1, 2, 3, 4},
                 {5, 6, 7, 8},
                 {9, 10, 11, 12},
                 {13, 14, 15, 16}});
-        Matrix4x4 matrix2 = new Matrix4x4(new double[][]{
+        Matrix4f matrix2 = new Matrix4f(new double[][]{
                 {9, 8, 7, 6},
                 {5, 4, 3, 2},
                 {1, 2, 3, 4},
                 {4, 3, 2, 1}});
-        Matrix4x4 result = matrix1.add(matrix2);
+        Matrix4f result = matrix1.add(matrix2);
 
         double[][] expected = {
                 {10, 10, 10, 10},
@@ -29,17 +29,17 @@ public class Matrix4x4Test {
 
     @Test
     public void testMatrixSubtraction() {
-        Matrix4x4 matrix1 = new Matrix4x4(new double[][]{
+        Matrix4f matrix1 = new Matrix4f(new double[][]{
                 {1, 2, 3, 4},
                 {5, 6, 7, 8},
                 {9, 10, 11, 12},
                 {13, 14, 15, 16}});
-        Matrix4x4 matrix2 = new Matrix4x4(new double[][]{
+        Matrix4f matrix2 = new Matrix4f(new double[][]{
                 {9, 8, 7, 6},
                 {5, 4, 3, 2},
                 {1, 2, 3, 4},
                 {4, 3, 2, 1}});
-        Matrix4x4 result = matrix1.subtract(matrix2);
+        Matrix4f result = matrix1.subtract(matrix2);
 
         double[][] expected = {
                 {-8, -6, -4, -2},
@@ -51,7 +51,7 @@ public class Matrix4x4Test {
 
     @Test
     public void testVectorMultiplication() {
-        Matrix4x4 m = new Matrix4x4(new double[][] {
+        Matrix4f m = new Matrix4f(new double[][] {
                 {1, 2, 3, 4},
                 {5, 6, 7, 8},
                 {9, 10, 11, 12},
@@ -64,12 +64,12 @@ public class Matrix4x4Test {
 
     @Test
     public void testMatrixMultiplication() {
-        Matrix4x4 matrix1 = new Matrix4x4(new double[][]{
+        Matrix4f matrix1 = new Matrix4f(new double[][]{
                 {1, 2, 3, 4},
                 {5, 6, 7, 8},
                 {9, 10, 11, 12},
                 {13, 14, 15, 16}});
-        Matrix4x4 matrix2 = new Matrix4x4(new double[][]{
+        Matrix4f matrix2 = new Matrix4f(new double[][]{
                 {9, 8, 7, 6},
                 {5, 4, 3, 2},
                 {1, 2, 3, 4},
@@ -86,7 +86,7 @@ public class Matrix4x4Test {
 
     @Test
     public void testMatrixTranspose() {
-        Matrix4x4 matrix = new Matrix4x4(new double[][]{
+        Matrix4f matrix = new Matrix4f(new double[][]{
                 {1, 2, 3, 4},
                 {5, 6, 7, 8},
                 {9, 10, 11, 12},
@@ -103,7 +103,7 @@ public class Matrix4x4Test {
 
     @Test
     public void testIdentityMatrix() {
-        double[][] identity = Matrix4x4.setIdentityMatrix().getMatrix();
+        double[][] identity = Matrix4f.setIdentityMatrix().getMatrix();
         double[][] expected = {
                 {1, 0, 0, 0},
                 {0, 1, 0, 0},
@@ -114,7 +114,7 @@ public class Matrix4x4Test {
 
     @Test
     public void getNullMatrix_returns4x4MatrixWithAllElementsZero() {
-        double[][] matrix = Matrix4x4.setNullMatrix().getMatrix();
+        double[][] matrix = Matrix4f.setNullMatrix().getMatrix();
         double[][] expected = {
                 {0, 0, 0, 0},
                 {0, 0, 0, 0},
@@ -129,7 +129,7 @@ public class Matrix4x4Test {
             double[][] invalidMatrixData = {
                     {1, 2, 3},
                     {4, 5, 6}};
-            new Matrix4x4(invalidMatrixData);
+            new Matrix4f(invalidMatrixData);
         });
     }
 

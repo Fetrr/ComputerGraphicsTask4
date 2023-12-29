@@ -1,9 +1,9 @@
 package com.cgvsu.math;
 
-public class Matrix4x4 {
+public class Matrix4f {
     private double[][] matrix;
 
-    public Matrix4x4(double[][] matrix) {
+    public Matrix4f(double[][] matrix) {
         if (matrix.length != 4 ||
                 matrix[0].length != 4 || matrix[1].length != 4 || matrix[2].length != 4 || matrix[3].length != 4) {
             throw new IllegalArgumentException("array must be 4x4!");
@@ -20,24 +20,24 @@ public class Matrix4x4 {
         return matrix;
     }
 
-    public Matrix4x4 add(Matrix4x4 other) {
+    public Matrix4f add(Matrix4f other) {
         double[][] result = new double[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 result[i][j] = this.matrix[i][j] + other.getMatrix()[i][j];
             }
         }
-        return new Matrix4x4(result);
+        return new Matrix4f(result);
     }
 
-    public Matrix4x4 subtract(Matrix4x4 other) {
+    public Matrix4f subtract(Matrix4f other) {
         double[][] result = new double[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 result[i][j] = this.matrix[i][j] - other.getMatrix()[i][j];
             }
         }
-        return new Matrix4x4(result);
+        return new Matrix4f(result);
     }
 
     public Vector4f multiplyVector(Vector4f v) {
@@ -49,7 +49,7 @@ public class Matrix4x4 {
         return new Vector4f(result);
     }
 
-    public Matrix4x4 multiplyMatrix(Matrix4x4 other) {
+    public Matrix4f multiplyMatrix(Matrix4f other) {
         double[][] m = other.getMatrix();
         double[][] result = new double[4][4];
         for (int i = 0; i < 4; i++) {
@@ -59,35 +59,35 @@ public class Matrix4x4 {
                 }
             }
         }
-        return new Matrix4x4(result);
+        return new Matrix4f(result);
     }
 
-    public Matrix4x4 transpose() {
+    public Matrix4f transpose() {
         double[][] result = new double[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 result[i][j] = this.matrix[j][i];
             }
         }
-        return new Matrix4x4(result);
+        return new Matrix4f(result);
     }
 
-    public static Matrix4x4 setIdentityMatrix() {
+    public static Matrix4f setIdentityMatrix() {
         double[][] identity = {
                 {1, 0, 0, 0},
                 {0, 1, 0, 0},
                 {0, 0, 1, 0},
                 {0, 0, 0, 1}};
-        return new Matrix4x4(identity);
+        return new Matrix4f(identity);
     }
 
-    public static Matrix4x4 setNullMatrix() {
+    public static Matrix4f setNullMatrix() {
         double[][] nullMatrix = {
                 {0, 0, 0, 0},
                 {0, 0, 0, 0},
                 {0, 0, 0, 0},
                 {0, 0, 0, 0}};
-        return new Matrix4x4(nullMatrix);
+        return new Matrix4f(nullMatrix);
     }
 
 //    public double getDet() {

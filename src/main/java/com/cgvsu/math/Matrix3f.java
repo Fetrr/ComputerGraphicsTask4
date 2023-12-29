@@ -1,9 +1,9 @@
 package com.cgvsu.math;
 
-public class Matrix3x3 {
+public class Matrix3f {
     private double[][] matrix;
 
-    public Matrix3x3(double[][] matrix) {
+    public Matrix3f(double[][] matrix) {
         if (matrix.length != 3 ||
                 matrix[0].length != 3 || matrix[1].length != 3 || matrix[2].length != 3) {
             throw new IllegalArgumentException("array must be 3x3!");
@@ -20,24 +20,24 @@ public class Matrix3x3 {
         return matrix;
     }
 
-    public Matrix3x3 add(Matrix3x3 other) {
+    public Matrix3f add(Matrix3f other) {
         double[][] result = new double[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 result[i][j] = this.matrix[i][j] + other.getMatrix()[i][j];
             }
         }
-        return new Matrix3x3(result);
+        return new Matrix3f(result);
     }
 
-    public Matrix3x3 subtract(Matrix3x3 other) {
+    public Matrix3f subtract(Matrix3f other) {
         double[][] result = new double[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 result[i][j] = this.matrix[i][j] - other.getMatrix()[i][j];
             }
         }
-        return new Matrix3x3(result);
+        return new Matrix3f(result);
     }
 
     public Vector3f multiplyVector(Vector3f v) {
@@ -48,7 +48,7 @@ public class Matrix3x3 {
         return new Vector3f(result);
     }
 
-    public Matrix3x3 multiplyMatrix(Matrix3x3 m) {
+    public Matrix3f multiplyMatrix(Matrix3f m) {
         double[][] other = m.getMatrix();
         double[][] result = new double[3][3];
         for (int i = 0; i < 3; i++) {
@@ -58,29 +58,29 @@ public class Matrix3x3 {
                 }
             }
         }
-        return new Matrix3x3(result);
+        return new Matrix3f(result);
     }
 
-    public Matrix3x3 transpose() {
+    public Matrix3f transpose() {
         double[][] result = new double[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 result[i][j] = this.matrix[j][i];
             }
         }
-        return new Matrix3x3(result);
+        return new Matrix3f(result);
     }
 
-    public static Matrix3x3 setIdentityMatrix() {
-        return new Matrix3x3(new double[][]{
+    public static Matrix3f setIdentityMatrix() {
+        return new Matrix3f(new double[][]{
                 {1, 0, 0},
                 {0, 1, 0},
                 {0, 0, 1}
         });
     }
 
-    public static Matrix3x3 setNullMatrix() {
-        return new Matrix3x3(new double[][]{
+    public static Matrix3f setNullMatrix() {
+        return new Matrix3f(new double[][]{
                 {0, 0, 0},
                 {0, 0, 0},
                 {0, 0, 0}
