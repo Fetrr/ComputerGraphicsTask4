@@ -24,7 +24,7 @@ import com.cgvsu.math.*;
 
 public class GuiController {
 
-    final private double TRANSLATION = 3.5; // Чтобы изменить скорость прокрутки, меняйте эту константу
+    final private double TRANSLATION = 100; // Чтобы изменить скорость прокрутки, меняйте эту константу
 
     @FXML
     AnchorPane anchorPane;
@@ -35,9 +35,9 @@ public class GuiController {
     private Model mesh = null;
 
     private Camera camera = new Camera(
-            new Vector3f(0, 00, 100),
+            new Vector3f(0, 0, 1000),
             new Vector3f(0, 0, 0),
-            1.0F, 1, 0.01F, 100);
+            1.0, 1, 0.01, 100);
 
     private Timeline timeline;
 

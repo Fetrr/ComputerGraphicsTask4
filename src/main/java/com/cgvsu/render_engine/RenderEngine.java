@@ -21,8 +21,6 @@ public class RenderEngine {
         Matrix4f projectionMatrix = camera.getProjectionMatrix();
 
         Matrix4f modelViewProjectionMatrix = new Matrix4f(modelMatrix.getMatrix());
-//        modelViewProjectionMatrix.mul(viewMatrix);
-//        modelViewProjectionMatrix.mul(projectionMatrix);
         modelViewProjectionMatrix.multiplyMatrix(viewMatrix);
         modelViewProjectionMatrix.multiplyMatrix(projectionMatrix);
 
