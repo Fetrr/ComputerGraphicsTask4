@@ -3,6 +3,10 @@ package com.cgvsu.math;
 public class Matrix4f {
     private double[][] matrix;
 
+    public Matrix4f() {
+        matrix = new double[4][4];
+    }
+
     public Matrix4f(double[][] matrix) {
         if (matrix.length != 4 ||
                 matrix[0].length != 4 || matrix[1].length != 4 || matrix[2].length != 4 || matrix[3].length != 4) {
@@ -16,8 +20,41 @@ public class Matrix4f {
         }
     }
 
+    public Matrix4f(double[] matrix) {
+        if (matrix == null) {
+            throw new IllegalArgumentException("array must not be null!");
+        }
+        if (matrix.length!= 16) {
+            throw new IllegalArgumentException("array must be 4x4!");
+        }
+        this.matrix = new double[4][4];
+        int i = 0, j = 0, iter = 1;
+        while (iter <= 16) {
+            this.matrix[i][j] = matrix[iter - 1];
+            iter += 1;
+            j += 1;
+            if ((iter - 1) % 4 == 0) {
+                i += 1;
+                j = 0;
+            }
+        }
+    }
+
+    public void setCell(int x, int y, double value) {
+        matrix[y][x] = value;
+    }
+
     public double[][] getMatrix() {
         return matrix;
+    }
+    public double[] getMatrixInArray() {
+        double[] result = new double[4 * 4];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                result[i * 4 + j] = matrix[i][j];
+            }
+        }
+        return result;
     }
 
     public Matrix4f add(Matrix4f other) {

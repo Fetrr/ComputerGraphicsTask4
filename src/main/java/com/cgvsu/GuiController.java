@@ -16,15 +16,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.io.IOException;
 import java.io.File;
-import javax.vecmath.Vector3f;
 
 import com.cgvsu.model.Model;
 import com.cgvsu.objreader.ObjReader;
 import com.cgvsu.render_engine.Camera;
+import com.cgvsu.math.*;
 
 public class GuiController {
 
-    final private float TRANSLATION = 0.5F;
+    final private double TRANSLATION = 0.5F;
 
     @FXML
     AnchorPane anchorPane;
@@ -54,7 +54,7 @@ public class GuiController {
             double height = canvas.getHeight();
 
             canvas.getGraphicsContext2D().clearRect(0, 0, width, height);
-            camera.setAspectRatio((float) (width / height));
+            camera.setAspectRatio((width / height));
 
             if (mesh != null) {
                 RenderEngine.render(canvas.getGraphicsContext2D(), camera, mesh, (int) width, (int) height);

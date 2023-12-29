@@ -1,16 +1,15 @@
 package com.cgvsu.render_engine;
-import javax.vecmath.Vector3f;
-import javax.vecmath.Matrix4f;
+import com.cgvsu.math.*;
 
 public class Camera {
 
     public Camera(
             final Vector3f position,
             final Vector3f target,
-            final float fov,
-            final float aspectRatio,
-            final float nearPlane,
-            final float farPlane) {
+            final double fov,
+            final double aspectRatio,
+            final double nearPlane,
+            final double farPlane) {
         this.position = position;
         this.target = target;
         this.fov = fov;
@@ -27,7 +26,7 @@ public class Camera {
         this.target = target;
     }
 
-    public void setAspectRatio(final float aspectRatio) {
+    public void setAspectRatio(final double aspectRatio) {
         this.aspectRatio = aspectRatio;
     }
 
@@ -57,8 +56,8 @@ public class Camera {
 
     private Vector3f position;
     private Vector3f target;
-    private float fov;
-    private float aspectRatio;
-    private float nearPlane;
-    private float farPlane;
+    private double fov;
+    private double aspectRatio;
+    private double nearPlane;
+    private double farPlane;
 }

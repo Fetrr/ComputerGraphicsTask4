@@ -7,6 +7,8 @@ public class Vector4f {
     private double w;
     private double length = 0;
 
+    public Vector4f() {}
+
     public Vector4f(double x, double y, double z, double w) {
         this.x = x;
         this.y = y;

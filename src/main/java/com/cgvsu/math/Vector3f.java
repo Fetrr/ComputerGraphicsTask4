@@ -5,6 +5,8 @@ public class Vector3f {
     private double y;
     private double z;
     private double length = 0;
+    
+    public Vector3f() {}
 
     public Vector3f(double x, double y, double z) {
         this.x = x;
@@ -54,6 +56,9 @@ public class Vector3f {
     public Vector3f subtract(Vector3f other) {
         return new Vector3f(x - other.getX(), y - other.getY(), z - other.getZ());
     }
+    public Vector3f subtract(Vector3f v1, Vector3f v2) {
+        return new Vector3f(v1.getX() - v2.getX(), v1.getY() - v2.getY(), v1.getZ() - v2.getZ());
+    }
 
     public Vector3f multiplyScalar(double scalar) {
         return new Vector3f(x * scalar, y * scalar, z * scalar);
@@ -69,11 +74,20 @@ public class Vector3f {
     public double scalarProduct(Vector3f other) {
         return x * other.getX() + y * other.getY() + z * other.getZ();
     }
+    
     public Vector3f vectorProduct(Vector3f other) {
         return new Vector3f(
                 y * other.getZ() - z * other.getY(),
                 z * other.getX() - x * other.getZ(),
                 x * other.getY() - y * other.getX()
+        );
+    }
+    
+    public Vector3f vectorProduct(Vector3f v1, Vector3f v2) {
+        return new Vector3f(
+                v1.getY() * v2.getZ() - v1.getZ() * v2.getY(),
+                v1.getZ() * v2.getX() - v1.getX() * v2.getZ(),
+                v1.getX() * v2.getY() - v1.getY() * v2.getX()
         );
     }
 

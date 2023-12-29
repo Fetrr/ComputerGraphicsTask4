@@ -5,6 +5,8 @@ public class Vector2f {
     private double y;
     private double length = 0;
 
+    public Vector2f() {}
+
     public Vector2f(double x, double y) {
         this.x = x;
         this.y = y;

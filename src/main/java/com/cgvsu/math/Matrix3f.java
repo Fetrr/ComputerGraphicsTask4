@@ -3,7 +3,14 @@ package com.cgvsu.math;
 public class Matrix3f {
     private double[][] matrix;
 
+    public Matrix3f() {
+        matrix = new double[3][3];
+    }
+
     public Matrix3f(double[][] matrix) {
+        if (matrix == null) {
+            throw new IllegalArgumentException("array must not be null!");
+        }
         if (matrix.length != 3 ||
                 matrix[0].length != 3 || matrix[1].length != 3 || matrix[2].length != 3) {
             throw new IllegalArgumentException("array must be 3x3!");
@@ -12,6 +19,26 @@ public class Matrix3f {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 this.matrix[i][j] = matrix[i][j];
+            }
+        }
+    }
+
+    public Matrix3f(double[] matrix) {
+        if (matrix == null) {
+            throw new IllegalArgumentException("array must not be null!");
+        }
+        if (matrix.length!= 9) {
+            throw new IllegalArgumentException("array must be 3x3!");
+        }
+        this.matrix = new double[4][4];
+        int i = 0, j = 0, iter = 1;
+        while (iter <= 9) {
+            this.matrix[i][j] = matrix[iter - 1];
+            iter += 1;
+            j += 1;
+            if (iter % 3 == 0) {
+                i += 1;
+                j = 0;
             }
         }
     }

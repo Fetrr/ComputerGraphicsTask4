@@ -3,7 +3,7 @@ package com.cgvsu.math;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Matrix3FTest {
+public class Matrix3fTest {
 
     @Test
     public void testMatrixAddition() {

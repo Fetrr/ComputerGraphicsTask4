@@ -3,7 +3,7 @@ package com.cgvsu.math;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Matrix4FTest {
+public class Matrix4fTest {
 
     @Test
     public void testMatrixAddition() {
@@ -131,6 +131,18 @@ public class Matrix4FTest {
                     {4, 5, 6}};
             new Matrix4f(invalidMatrixData);
         });
+    }
+
+    @Test
+    public void testSetMatrixFromArray() {
+        double[] matrixInArray = {
+                1, 2, 3, 4,
+                5, 6, 7, 8,
+                9, 10, 11, 12,
+                13, 14, 15, 16
+        };
+        Matrix4f matrix = new Matrix4f(matrixInArray);
+        assertArrayEquals(matrixInArray, matrix.getMatrixInArray());
     }
 
 //    @Test
